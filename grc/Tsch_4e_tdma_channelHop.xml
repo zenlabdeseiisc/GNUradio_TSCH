@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<block>
+  <name>tdma_channelHop</name>
+  <key>Tsch_4e_tdma_channelHop</key>
+  <category>[Tsch_4e]</category>
+  <import>import Tsch_4e</import>
+
+  <!--<import>from gnuradio import blocks</import> -->
+  <import>import pmt</import>
+
+
+  <make>Tsch_4e.tdma_channelHop($msg, $period_ms, $slot_length, $freq_seq)</make>
+
+
+  <callback>set_msg($msg)</callback>
+  <callback>set_period($period)</callback>
+  <callback>set_slot_length($slot_length)</callback>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+		<name>Message PMT</name>
+		<key>msg</key>
+		<value>pmt.intern("TEST")</value>
+		<type>raw</type>
+	</param>
+	<param>
+		<name>Time Slot Period(ms)</name>
+		<key>period_ms</key>
+		<value>1000</value>
+		<type>real</type>
+	</param>
+        <param>
+		<name>Slot Frame Length</name>
+		<key>slot_length</key>
+		<value>4</value>
+		<type>int</type>
+	</param>
+        <param>
+		<name>Frequency Sequence</name>
+		<key>freq_seq</key>
+		<value>[11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]</value>
+		<type>int_vector</type>
+	</param>
+	<sink>
+		<name>set_msg</name>
+		<type>message</type>
+        <optional>1</optional>
+	</sink>
+	<source>
+		<name>strobe</name>
+		<type>message</type>
+        <optional>1</optional>
+	</source>
+	<source>
+		<name>strobe_data</name>
+		<type>message</type>
+        <optional>1</optional>
+	</source>
+</block>
