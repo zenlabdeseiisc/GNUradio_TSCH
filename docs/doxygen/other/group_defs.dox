@@ -1,0 +1,7 @@
+/*!
+ * \defgroup block GNU Radio TSCH_4E C++ Signal Processing Blocks
+ * \brief All C++ blocks that can be used from the TSCH_4E GNU Radio
+ *        module are listed here or in the subcategories below.
+ *
+ */
+
